@@ -9,7 +9,8 @@ __all__ = ['ShipmentOutPicking', 'ShipmentOutPacked',
     'ShipmentOutScanningStart', 'ShipmentOutScanning']
 
 
-class ShipmentOutPicking(metaclass=PoolMeta):
+class ShipmentOutPicking:
+    __metaclass__ = PoolMeta
     __name__ = 'stock.shipment.out.picking'
     weight_uom = fields.Many2One('product.uom', 'Weight Uom',
         domain=[('category', '=', Id('product', 'uom_cat_weight'))],
@@ -28,7 +29,8 @@ class ShipmentOutPicking(metaclass=PoolMeta):
         return config.weight_uom.id if config.weight_uom else None
 
 
-class ShipmentOutPacked(metaclass=PoolMeta):
+class ShipmentOutPacked:
+    __metaclass__ = PoolMeta
     __name__ = 'stock.shipment.out.packed'
 
     def set_shipment(self, shipment):
@@ -39,7 +41,8 @@ class ShipmentOutPacked(metaclass=PoolMeta):
         return shipment
 
 
-class ShipmentOutScanningStart(metaclass=PoolMeta):
+class ShipmentOutScanningStart:
+    __metaclass__ = PoolMeta
     __name__ = 'stock.shipment.out.scanning.start'
     weight_uom = fields.Many2One('product.uom', 'Weight Uom',
         domain=[('category', '=', Id('product', 'uom_cat_weight'))],
@@ -58,7 +61,8 @@ class ShipmentOutScanningStart(metaclass=PoolMeta):
         return config.weight_uom.id if config.weight_uom else None
 
 
-class ShipmentOutScanning(metaclass=PoolMeta):
+class ShipmentOutScanning:
+    __metaclass__ = PoolMeta
     __name__ = 'stock.shipment.out.scanning'
 
     def set_shipment(self, shipment):
